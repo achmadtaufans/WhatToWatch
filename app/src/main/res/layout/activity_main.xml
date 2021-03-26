@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.project.whattowatch.ui.main.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/holo_blue_light"
+                    android:minHeight="?attr/actionBarSize"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="@string/app_name"
+                    app:titleTextColor="@color/white"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_favorite_on"
+                    android:tint="@color/white"
+                    android:layout_marginEnd="@dimen/dimens_16dp"
+                    app:layout_constraintBottom_toTopOf="@+id/toolbar"
+                    app:layout_constraintEnd_toEndOf="@+id/toolbar"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                    android:elevation="@dimen/dimens_16dp"
+                    android:onClick="@{() -> viewModel.openFavoriteMovies()}"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:id="@+id/category_title"
+            style="@style/defaultTitleTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_bar"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{viewModel.categoryTitle}"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/dimens_18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/category_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/category_title"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            style="@style/defaultTextStyle"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@{viewModel.categorySubtitle}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_movie_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_category"
+            android:layout_below="@+id/category_detail"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false" />
+
+        <Button
+            android:id="@+id/btn_category"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/holo_blue_light"
+            android:text="@string/category"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:onClick="@{() -> viewModel.openDialogCategory()}"/>
+    </RelativeLayout>
+  </layout>

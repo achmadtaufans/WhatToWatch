@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">WhatToWatch</string>
+    <string name="most_popular_movies">Most popular movies</string>
+    <string name="error_fetch_movies">Please check your internet connection</string>
+    <string name="highest_rated_movies">Highest rated movies of all time</string>
+    <string name="stay_updated">Stay updated with the latest movies</string>
+
+    <string name="category">Category</string>
+    <string name="popular">Popular</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="favorite">Favorite</string>
+
+    <string name="subtitle_popular">Most popular movies</string>
+    <string name="subtitle_upcoming">Most upcoming movies</string>
+    <string name="subtitle_top_rated">Mos top rated movies</string>
+    <string name="subtitle_now_playing">Most now playing movies</string>
+    <string name="subtitle_favorite">Your favorite movies</string>
+</resources>
